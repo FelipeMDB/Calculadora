@@ -16,5 +16,9 @@ namespace Calculadora
         {
             InitializeComponent();
         }
+
+        private void txtVisor_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

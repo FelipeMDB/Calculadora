@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculadora));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblPosfixa = new System.Windows.Forms.Label();
+            this.txtVisor = new System.Windows.Forms.TextBox();
+            this.txtResultado = new System.Windows.Forms.TextBox();
+            this.lblSequencias = new System.Windows.Forms.Label();
             this.btnPotencia = new System.Windows.Forms.Button();
             this.btnDivisao = new System.Windows.Forms.Button();
             this.btnMultiplicacao = new System.Windows.Forms.Button();
@@ -54,35 +54,36 @@
             this.btnParentesisAberto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtVisor
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(262, 33);
-            this.textBox1.TabIndex = 0;
+            this.txtVisor.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtVisor.Location = new System.Drawing.Point(12, 12);
+            this.txtVisor.Multiline = true;
+            this.txtVisor.Name = "txtVisor";
+            this.txtVisor.ReadOnly = true;
+            this.txtVisor.Size = new System.Drawing.Size(262, 33);
+            this.txtVisor.TabIndex = 0;
+            this.txtVisor.TextChanged += new System.EventHandler(this.txtVisor_TextChanged);
             // 
-            // textBox2
+            // txtResultado
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.Location = new System.Drawing.Point(12, 51);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(262, 33);
-            this.textBox2.TabIndex = 1;
+            this.txtResultado.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtResultado.Location = new System.Drawing.Point(12, 51);
+            this.txtResultado.Multiline = true;
+            this.txtResultado.Name = "txtResultado";
+            this.txtResultado.ReadOnly = true;
+            this.txtResultado.Size = new System.Drawing.Size(262, 33);
+            this.txtResultado.TabIndex = 1;
             // 
-            // lblPosfixa
+            // lblSequencias
             // 
-            this.lblPosfixa.AutoSize = true;
-            this.lblPosfixa.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosfixa.Location = new System.Drawing.Point(10, 96);
-            this.lblPosfixa.Name = "lblPosfixa";
-            this.lblPosfixa.Size = new System.Drawing.Size(65, 20);
-            this.lblPosfixa.TabIndex = 2;
-            this.lblPosfixa.Text = "Posfixa:";
+            this.lblSequencias.AutoSize = true;
+            this.lblSequencias.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSequencias.Location = new System.Drawing.Point(10, 96);
+            this.lblSequencias.Name = "lblSequencias";
+            this.lblSequencias.Size = new System.Drawing.Size(65, 20);
+            this.lblSequencias.TabIndex = 2;
+            this.lblSequencias.Text = "Posfixa:";
             // 
             // btnPotencia
             // 
@@ -311,9 +312,9 @@
             this.Controls.Add(this.btnMultiplicacao);
             this.Controls.Add(this.btnDivisao);
             this.Controls.Add(this.btnPotencia);
-            this.Controls.Add(this.lblPosfixa);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblSequencias);
+            this.Controls.Add(this.txtResultado);
+            this.Controls.Add(this.txtVisor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCalculadora";
             this.Text = "Calculadora";
@@ -324,9 +325,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lblPosfixa;
+        private System.Windows.Forms.TextBox txtVisor;
+        private System.Windows.Forms.TextBox txtResultado;
+        private System.Windows.Forms.Label lblSequencias;
         private System.Windows.Forms.Button btnPotencia;
         private System.Windows.Forms.Button btnDivisao;
         private System.Windows.Forms.Button btnMultiplicacao;
