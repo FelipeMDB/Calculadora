@@ -1,0 +1,10 @@
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.Cache
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\ROMA\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.pdb

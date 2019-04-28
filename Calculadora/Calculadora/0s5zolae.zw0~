@@ -13,8 +13,6 @@ namespace Calculadora
     public partial class frmCalculadora : Form
     {
         double[] numeros;
-        string seqInfixa;
-        string seqPosfixa;
         public frmCalculadora()
         {
             InitializeComponent();
@@ -34,42 +32,18 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            seqInfixa = "";
-            seqPosfixa = "";
-            char letra = 'A';
             numeros = new double[26];
             string numero = "";
             int num;
             for (int i = 0; i < txtVisor.Text.Length; i++)
-            {
-                string caracterAtual = (txtVisor.Text)[i].ToString();
-
-                if (int.TryParse(caracterAtual, out num) || caracterAtual.Equals("."))
+                if (int.TryParse((txtVisor.Text)[i].ToString(), out num) || (txtVisor.Text)[i].Equals('.'))
                 {
-                    numero += caracterAtual;
-                }
-                else if (numero != "")
-                {
-                    numeros[letra - 'A'] = double.Parse(numero);
-                    seqInfixa += letra;
-                    seqInfixa += caracterAtual;
-                    numero = "";
-                    letra++;
+                    numero += (txtVisor.Text)[i];
                 }
                 else
                 {
-                    seqInfixa += caracterAtual;
-                }
-
-                if (i + 1 == txtVisor.Text.Length && (numero != ""))
-                {
-                    numeros[letra - 'A'] = double.Parse(numero);
-                    seqInfixa += letra;
                     numero = "";
-                    letra++;
                 }
-            }
-            MessageBox.Show(seqInfixa);
         }
     }
 }
