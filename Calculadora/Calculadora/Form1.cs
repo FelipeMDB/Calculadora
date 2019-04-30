@@ -71,5 +71,41 @@ namespace Calculadora
             }
             MessageBox.Show(seqInfixa);
         }
+
+        private void ConverterParaPosfixa()
+        {
+            PilhaHerdaLista<string> pilha = new PilhaHerdaLista<string>()
+
+        }
+
+        private bool HaPrecedencia(string topo, string simboloLido)
+        {
+            switch(simboloLido)
+            {
+                case "^":
+                    return true;
+                case "(":
+                    return true;
+                case ")":
+                    return false;
+                case "/":
+                    if (topo == "+" || topo == "-" || topo == "(")
+                        return true;
+                    return false;
+                case "*":
+                    if (topo == "+" || topo == "-" || topo == "(")
+                        return true;
+                    return false;
+                case "-":
+                    if (topo == "(")
+                        return true;
+                    return false;
+                case "+":
+                    if (topo == "(")
+                        return true;
+                    return false;
+            }
+            return false;
+        }
     }
 }
