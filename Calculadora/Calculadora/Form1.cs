@@ -73,7 +73,7 @@ namespace Calculadora
             string s = "";
             while (!seqPosfixa.EstaVazia())
                 s += seqPosfixa.Retirar();
-            MessageBox.Show(s);
+            lbSequencias.Text = s;
         }
 
         private void ConverterParaPosfixa()
@@ -123,25 +123,33 @@ namespace Calculadora
         {
             switch (topo)
             {
-                case '^':
-                    return true;
                 case '(':
                     return true;
-                case ')':
-                    return false;
-                case '/':
-                    if (simboloLido == '+' || simboloLido == '-' || simboloLido == '(')
-                        return true;
-                    return false;
+
+                case '^':
+                    return true;
+
                 case '*':
-                    if (simboloLido == '+' || simboloLido == '-' || simboloLido == '(')
+                    if(simboloLido == '^' || simboloLido == '*' || simboloLido == '/')
                         return true;
                     return false;
-                case '-':
-                    if (simboloLido == '(')
+
+                case '/':
+                    if (simboloLido == '^' || simboloLido == '*' || simboloLido == '/')
                         return true;
                     return false;
+
                 case '+':
+                    if (simboloLido == '(' || simboloLido == ')')
+                        return true;
+                    return false;
+
+                case '-':
+                    if (simboloLido == '(' || simboloLido == ')')
+                        return true;
+                    return false;
+
+                case ')':
                     if (simboloLido == '(')
                         return true;
                     return false;

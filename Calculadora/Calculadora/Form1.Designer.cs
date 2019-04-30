@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculadora));
             this.txtVisor = new System.Windows.Forms.TextBox();
             this.txtResultado = new System.Windows.Forms.TextBox();
-            this.lblSequencias = new System.Windows.Forms.Label();
+            this.lblPosfixa = new System.Windows.Forms.Label();
             this.btnPotencia = new System.Windows.Forms.Button();
             this.btnDivisao = new System.Windows.Forms.Button();
             this.btnMultiplicacao = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.btnIgual = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnParentesisAberto = new System.Windows.Forms.Button();
-            this.lblPosfixa = new System.Windows.Forms.Label();
+            this.lbSequencias = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtVisor
@@ -75,15 +75,15 @@
             this.txtResultado.Size = new System.Drawing.Size(262, 31);
             this.txtResultado.TabIndex = 1;
             // 
-            // lblSequencias
+            // lblPosfixa
             // 
-            this.lblSequencias.AutoSize = true;
-            this.lblSequencias.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSequencias.Location = new System.Drawing.Point(10, 96);
-            this.lblSequencias.Name = "lblSequencias";
-            this.lblSequencias.Size = new System.Drawing.Size(65, 20);
-            this.lblSequencias.TabIndex = 2;
-            this.lblSequencias.Text = "Posfixa:";
+            this.lblPosfixa.AutoSize = true;
+            this.lblPosfixa.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosfixa.Location = new System.Drawing.Point(10, 96);
+            this.lblPosfixa.Name = "lblPosfixa";
+            this.lblPosfixa.Size = new System.Drawing.Size(65, 20);
+            this.lblPosfixa.TabIndex = 2;
+            this.lblPosfixa.Text = "Posfixa:";
             // 
             // btnPotencia
             // 
@@ -328,15 +328,15 @@
             this.btnParentesisAberto.UseVisualStyleBackColor = false;
             this.btnParentesisAberto.Click += new System.EventHandler(this.btn9_Click);
             // 
-            // lblPosfixa
+            // lbSequencias
             // 
-            this.lblPosfixa.AutoSize = true;
-            this.lblPosfixa.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosfixa.Location = new System.Drawing.Point(81, 96);
-            this.lblPosfixa.Name = "lblPosfixa";
-            this.lblPosfixa.Size = new System.Drawing.Size(52, 20);
-            this.lblPosfixa.TabIndex = 23;
-            this.lblPosfixa.Text = "label1";
+            this.lbSequencias.AutoSize = true;
+            this.lbSequencias.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSequencias.Location = new System.Drawing.Point(81, 96);
+            this.lbSequencias.Name = "lbSequencias";
+            this.lbSequencias.Size = new System.Drawing.Size(52, 20);
+            this.lbSequencias.TabIndex = 23;
+            this.lbSequencias.Text = "label1";
             // 
             // frmCalculadora
             // 
@@ -344,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(292, 376);
-            this.Controls.Add(this.lblPosfixa);
+            this.Controls.Add(this.lbSequencias);
             this.Controls.Add(this.btn0);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btnLimpar);
@@ -365,7 +365,7 @@
             this.Controls.Add(this.btnMultiplicacao);
             this.Controls.Add(this.btnDivisao);
             this.Controls.Add(this.btnPotencia);
-            this.Controls.Add(this.lblSequencias);
+            this.Controls.Add(this.lblPosfixa);
             this.Controls.Add(this.txtResultado);
             this.Controls.Add(this.txtVisor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -383,7 +383,7 @@
 
         private System.Windows.Forms.TextBox txtVisor;
         private System.Windows.Forms.TextBox txtResultado;
-        private System.Windows.Forms.Label lblSequencias;
+        private System.Windows.Forms.Label lblPosfixa;
         private System.Windows.Forms.Button btnPotencia;
         private System.Windows.Forms.Button btnDivisao;
         private System.Windows.Forms.Button btnMultiplicacao;
@@ -404,7 +404,7 @@
         private System.Windows.Forms.Button btnIgual;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnParentesisAberto;
-        private System.Windows.Forms.Label lblPosfixa;
+        private System.Windows.Forms.Label lbSequencias;
     }
 }
 
