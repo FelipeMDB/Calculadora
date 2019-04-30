@@ -3,89 +3,115 @@ using System.Windows.Forms;
 
 public class ListaSimples<Dado> where Dado : IComparable<Dado>
 {
-    private NoLista<Dado> primeiro, ultimo, anterior, atual;
-    int quantosNos;
+  private NoLista<Dado> primeiro, ultimo, anterior, atual;
+  int quantosNos;
 
-    private bool primeiroAcessoDoPercurso;
+  private bool primeiroAcessoDoPercurso;
 
-    public ListaSimples()
-    {
-        primeiro = ultimo = anterior = atual = null;
-        quantosNos = 0;
-        primeiroAcessoDoPercurso = false;
-    }
-    public void percorrerLista()
-    {
-        atual = primeiro;
-        while (atual != null)
-        {
-            Console.WriteLine(atual.Info);
-            atual = atual.Prox;
-        }
-    }
+  public ListaSimples()
+  {
+    primeiro = ultimo = anterior = atual = null;
+    quantosNos = 0;
+    primeiroAcessoDoPercurso = false;
+  }
 
-    public bool EstaVazia
-    {
-        get => primeiro == null;
-    }
-    public NoLista<Dado> Primeiro { get => primeiro; }
-    public NoLista<Dado> Ultimo { get => ultimo; }
-    public int QuantosNos { get => quantosNos; }
-    public NoLista<Dado> Atual { get => atual; set => atual = value; }
+  public void IniciarPercursoSequencial()
+  {
+    atual = primeiro;
+    anterior = null;
+    primeiroAcessoDoPercurso = true;
+  }
 
-    public void InserirAntesDoInicio(NoLista<Dado> novoNo)
+  public bool PodePercorrer()
+  {
+    bool retorno = true;
+    if (atual == null)
+      retorno = false;
+    else
+    if (primeiroAcessoDoPercurso)
+      primeiroAcessoDoPercurso = false;
+    else
     {
-        if (EstaVazia)
-            ultimo = novoNo;
-        novoNo.Prox = primeiro;
-        primeiro = novoNo;
-        quantosNos++;
+      anterior = atual;
+      atual = atual.Prox;
+      if (atual == null)
+        retorno = false;
     }
 
-    public void InserirAntesDoInicio(Dado informacao)
+    return retorno;
+  }
+  public void percorrerLista()
+  {
+    atual = primeiro;
+    while (atual != null)
     {
-        if (informacao != null)
-        {
-            var novoNo = new NoLista<Dado>(informacao, null);
-            InserirAntesDoInicio(novoNo);
-        }
+      Console.WriteLine(atual.Info);
+      atual = atual.Prox;
     }
+  }
 
-    public void InserirAposFim(NoLista<Dado> novoNo)
+  public bool EstaVazia
+  {
+    get => primeiro == null;
+  }
+  public NoLista<Dado> Primeiro { get => primeiro; }
+  public NoLista<Dado> Ultimo { get => ultimo; }
+  public int QuantosNos { get => quantosNos; }
+  public NoLista<Dado> Atual { get => atual; set => atual = value; }
+
+  public void InserirAntesDoInicio(NoLista<Dado> novoNo)
+  {
+    if (EstaVazia)
+      ultimo = novoNo;
+    novoNo.Prox = primeiro;
+    primeiro = novoNo;
+    quantosNos++;
+  }
+
+  public void InserirAntesDoInicio(Dado informacao)
+  {
+    if (informacao != null)
     {
-        if (EstaVazia)
-            primeiro = novoNo;
-        else
-            ultimo.Prox = novoNo;
-        novoNo.Prox = null;
-        ultimo = novoNo;
-        quantosNos++;
+      var novoNo = new NoLista<Dado>(informacao, null);
+      InserirAntesDoInicio(novoNo);
     }
+  }
 
-    public void InserirAposFim(Dado informacao)
+  public void InserirAposFim(NoLista<Dado> novoNo)
+  {
+    if (EstaVazia)
+      primeiro = novoNo;
+    else
+      ultimo.Prox = novoNo;
+    novoNo.Prox = null;
+    ultimo = novoNo;
+    quantosNos++;
+  }
+
+  public void InserirAposFim(Dado informacao)
+  {
+    if (informacao != null)
     {
-        if (informacao != null)
-        {
-            var novoNo = new NoLista<Dado>(informacao, null);
-            InserirAposFim(novoNo);
-        }
+      var novoNo = new NoLista<Dado>(informacao, null);
+      InserirAposFim(novoNo);
     }
+  }
 
-    public void Listar(ListBox onde)
-    {
-        onde.Items.Clear();
+  public void Listar(ListBox onde)
+  {
+    onde.Items.Clear();
 
-        for (atual = primeiro; atual != null; atual = atual.Prox)
-            onde.Items.Add(atual.Info);
+    for (atual = primeiro; atual != null; atual = atual.Prox)
+      onde.Items.Add(atual.Info);
 
-        // ou
-        // atual = primeiro;
-        // while (atual != null)
-        // {
-        //    onde.Items.Add(atual.Info);
-        //    atual = atual.Prox;
-        // }
-    }
+    // ou
+    // atual = primeiro;
+    // while (atual != null)
+    // {
+    //    onde.Items.Add(atual.Info);
+    //    atual = atual.Prox;
+    // }
+  }
 
   public bool ExisteDado(Dado outroProcurado)
   {
@@ -163,14 +189,14 @@ public class ListaSimples<Dado> where Dado : IComparable<Dado>
     // ao atual
     return achou; // devolve o valor da variável achou, que indica
                   // se a chave procurada foi ou não encontrado
-}
+  }
 
   public void InserirEmOrdem(Dado dados)
   {
     if (!ExisteDado(dados)) // existeDado configurou anterior e atual
     {                       // aqui temos certeza de que a chave não existe
       NoLista<Dado> novo = new NoLista<Dado>(dados, null); // guarda dados no
-                                                     // novo nó
+                                                           // novo nó
       if (EstaVazia) // se a lista está vazia, então o
         InserirAntesDoInicio(novo); // novo nó é o primeiro da lista
       else
@@ -193,7 +219,7 @@ public class ListaSimples<Dado> where Dado : IComparable<Dado>
   public bool Remover(Dado dados)
   {
     if (!ExisteDado(dados))  // ajusta ponteiros atual e anterior
-       return false;
+      return false;
 
     // aqui, temos certeza de que a lista não está vazia, 
     // que o dado procurado existe, e seu
@@ -221,14 +247,14 @@ public class ListaSimples<Dado> where Dado : IComparable<Dado>
     quantosNos--;
   }
 
-  private void ProcurarMenor(ref NoLista<Dado> antM, 
+  private void ProcurarMenor(ref NoLista<Dado> antM,
                              ref NoLista<Dado> atuM)
   {
     antM = anterior = null;
     atuM = atual = primeiro;
     while (atual != null)
     {
-      if (atual.Info.CompareTo(atuM.Info) < 0 )
+      if (atual.Info.CompareTo(atuM.Info) < 0)
       {
         antM = anterior;
         atuM = atual;
@@ -260,85 +286,85 @@ public class ListaSimples<Dado> where Dado : IComparable<Dado>
 
   // Exercício 1: percorrer e contar nós
   public int Contar()
+  {
+    int quantos = 0;
+    atual = primeiro;
+    while (atual != null)
     {
-        int quantos = 0;
-        atual = primeiro;
-        while (atual != null)
-        {
-            quantos++;
-            atual = atual.Prox;
-        }
-        return quantos;
+      quantos++;
+      atual = atual.Prox;
     }
-    // Exercicio 3 : unir duas listas ligadas numa terceira
+    return quantos;
+  }
+  // Exercicio 3 : unir duas listas ligadas numa terceira
 
-    public ListaSimples<Dado> UnirCom(ListaSimples<Dado> outra)
+  public ListaSimples<Dado> UnirCom(ListaSimples<Dado> outra)
+  {
+    ListaSimples<Dado> novaLista = new ListaSimples<Dado>();
+    atual = primeiro;
+    outra.atual = outra.primeiro;
+    while (atual != null && outra.atual != null)
     {
-        ListaSimples<Dado> novaLista = new ListaSimples<Dado>();
-        atual = primeiro;
-        outra.atual = outra.primeiro;
-        while (atual != null && outra.atual != null)
-        {
-            if (atual.Info.CompareTo(outra.atual.Info) < 0)
-            {
-                novaLista.InserirAposFim(atual.Info);
-                atual = atual.Prox;
-            }
-            else
-              if (outra.atual.Info.CompareTo(atual.Info) < 0)
-            {
-                novaLista.InserirAposFim(outra.atual.Info);
-                outra.atual = outra.atual.Prox;
-            }
-            else
-            {
-                novaLista.InserirAposFim(atual.Info);
-                outra.atual = outra.atual.Prox;
-                atual = atual.Prox;
-            }
+      if (atual.Info.CompareTo(outra.atual.Info) < 0)
+      {
+        novaLista.InserirAposFim(atual.Info);
+        atual = atual.Prox;
+      }
+      else
+        if (outra.atual.Info.CompareTo(atual.Info) < 0)
+      {
+        novaLista.InserirAposFim(outra.atual.Info);
+        outra.atual = outra.atual.Prox;
+      }
+      else
+      {
+        novaLista.InserirAposFim(atual.Info);
+        outra.atual = outra.atual.Prox;
+        atual = atual.Prox;
+      }
 
-        }
-
-        // se a lista this ainda não foi percorrida até o final,
-        // terminamos de percorrê-la e incluímos os elementos 
-        // faltantes na lista de união (novaLista)
-        while (atual != null)
-        {
-            novaLista.InserirAposFim(atual.Info);
-            atual = atual.Prox;
-        }
-
-        // se a outra lista ainda não foi percorrida até o final,
-        // terminamos de percorrê-la e incluímos os elementos 
-        // faltantes na lista de união (novaLista)
-        while (outra.atual != null)
-        {
-            novaLista.InserirAposFim(outra.atual.Info);
-            outra.atual = outra.atual.Prox;
-        }
-
-        return novaLista;
     }
-    // Exercício 4 : inverter uma lista ligada
 
-    public void Inverter()
+    // se a lista this ainda não foi percorrida até o final,
+    // terminamos de percorrê-la e incluímos os elementos 
+    // faltantes na lista de união (novaLista)
+    while (atual != null)
     {
-        if (!EstaVazia)
-        {
-            NoLista<Dado> um, dois, tres;
-            um = primeiro;
-            dois = um.Prox;
-            while (dois != null)
-            {
-                tres = dois.Prox;
-                dois.Prox = um;
-                um = dois;
-                dois = tres;
-            }
-            ultimo = primeiro;
-            primeiro = um;
-            ultimo.Prox = null;
-        }
+      novaLista.InserirAposFim(atual.Info);
+      atual = atual.Prox;
     }
+
+    // se a outra lista ainda não foi percorrida até o final,
+    // terminamos de percorrê-la e incluímos os elementos 
+    // faltantes na lista de união (novaLista)
+    while (outra.atual != null)
+    {
+      novaLista.InserirAposFim(outra.atual.Info);
+      outra.atual = outra.atual.Prox;
+    }
+
+    return novaLista;
+  }
+  // Exercício 4 : inverter uma lista ligada
+
+  public void Inverter()
+  {
+    if (!EstaVazia)
+    {
+      NoLista<Dado> um, dois, tres;
+      um = primeiro;
+      dois = um.Prox;
+      while (dois != null)
+      {
+        tres = dois.Prox;
+        dois.Prox = um;
+        um = dois;
+        dois = tres;
+      }
+      ultimo = primeiro;
+      primeiro = um;
+      ultimo.Prox = null;
+    }
+  }
 }
 

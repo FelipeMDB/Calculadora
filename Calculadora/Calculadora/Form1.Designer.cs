@@ -52,6 +52,7 @@
             this.btnIgual = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnParentesisAberto = new System.Windows.Forms.Button();
+            this.lblPosfixa = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtVisor
@@ -327,12 +328,23 @@
             this.btnParentesisAberto.UseVisualStyleBackColor = false;
             this.btnParentesisAberto.Click += new System.EventHandler(this.btn9_Click);
             // 
+            // lblPosfixa
+            // 
+            this.lblPosfixa.AutoSize = true;
+            this.lblPosfixa.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosfixa.Location = new System.Drawing.Point(81, 96);
+            this.lblPosfixa.Name = "lblPosfixa";
+            this.lblPosfixa.Size = new System.Drawing.Size(52, 20);
+            this.lblPosfixa.TabIndex = 23;
+            this.lblPosfixa.Text = "label1";
+            // 
             // frmCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(292, 376);
+            this.Controls.Add(this.lblPosfixa);
             this.Controls.Add(this.btn0);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btnLimpar);
@@ -392,6 +404,7 @@
         private System.Windows.Forms.Button btnIgual;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnParentesisAberto;
+        private System.Windows.Forms.Label lblPosfixa;
     }
 }
 

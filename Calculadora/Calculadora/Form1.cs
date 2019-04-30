@@ -13,8 +13,8 @@ namespace Calculadora
     public partial class frmCalculadora : Form
     {
         double[] numeros;
-        string seqInfixa;
-        string seqPosfixa;
+        FilaLista<char> seqInfixa;
+        FilaLista<char> seqPosfixa;
         public frmCalculadora()
         {
             InitializeComponent();
@@ -34,74 +34,115 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            seqInfixa = "";
-            seqPosfixa = "";
+            seqInfixa = new FilaLista<char>();
+            seqPosfixa = new FilaLista<char>();
             char letra = 'A';
             numeros = new double[26];
             string numero = "";
             int num;
             for (int i = 0; i < txtVisor.Text.Length; i++)
             {
-                string caracterAtual = (txtVisor.Text)[i].ToString();
+                char caracterAtual = (txtVisor.Text)[i];
 
-                if (int.TryParse(caracterAtual, out num) || caracterAtual.Equals("."))
+                if (int.TryParse(caracterAtual.ToString(), out num) || caracterAtual.Equals('.'))
                 {
                     numero += caracterAtual;
                 }
                 else if (numero != "")
                 {
                     numeros[letra - 'A'] = double.Parse(numero);
-                    seqInfixa += letra;
-                    seqInfixa += caracterAtual;
+                    seqInfixa.Enfileirar(letra);
+                    seqInfixa.Enfileirar(caracterAtual);
                     numero = "";
                     letra++;
                 }
                 else
                 {
-                    seqInfixa += caracterAtual;
+                    seqInfixa.Enfileirar(caracterAtual);
                 }
 
                 if (i + 1 == txtVisor.Text.Length && (numero != ""))
                 {
                     numeros[letra - 'A'] = double.Parse(numero);
-                    seqInfixa += letra;
+                    seqInfixa.Enfileirar(letra);
                     numero = "";
                     letra++;
                 }
             }
-            MessageBox.Show(seqInfixa);
+            ConverterParaPosfixa();
+            string s = "";
+            while (!seqPosfixa.EstaVazia())
+                s += seqPosfixa.Retirar();
+            MessageBox.Show(s);
         }
 
         private void ConverterParaPosfixa()
         {
-            PilhaHerdaLista<string> pilha = new PilhaHerdaLista<string>()
+            char operadorComMaiorPrecedencia;
+            PilhaLista<char> pilha = new PilhaLista<char>();
+            do
+            {
+                char simboloLido = seqInfixa.Retirar();
+                if (!(simboloLido <= 'Z' && simboloLido >= 'A'))
+                {
+                    if (pilha.EstaVazia())
+                        pilha.Empilhar(simboloLido);
+                    else
+                    {
+                        bool parar = false;
+                        while (!parar && !pilha.EstaVazia() && HaPrecedencia(pilha.OTopo(), simboloLido))
+                        {
+                            operadorComMaiorPrecedencia = pilha.Desempilhar();
+                            if (operadorComMaiorPrecedencia != '(')
+                                seqPosfixa.Enfileirar(operadorComMaiorPrecedencia);
+                            else
+                                parar = true;
+                        }
+                        if (simboloLido != ')')
+                            pilha.Empilhar(simboloLido);
+                        else
+                            operadorComMaiorPrecedencia = pilha.Desempilhar();
+                    }
+                }
+                else
+                {
+                    seqPosfixa.Enfileirar(simboloLido);
+                }
+            }
+            while (!seqInfixa.EstaVazia());
 
+            while (!pilha.EstaVazia())
+            {
+                operadorComMaiorPrecedencia = pilha.Desempilhar();
+                if (operadorComMaiorPrecedencia != '(')
+                    seqPosfixa.Enfileirar(operadorComMaiorPrecedencia);
+            }
         }
 
-        private bool HaPrecedencia(string topo, string simboloLido)
+        private bool HaPrecedencia(char topo, char simboloLido)
         {
-            switch(simboloLido)
+            switch (topo)
             {
-                case "^":
+                case '^':
                     return true;
-                case "(":
+                case '(':
                     return true;
-                case ")":
+                case ')':
                     return false;
-                case "/":
-                    if (topo == "+" || topo == "-" || topo == "(")
+                case '/':
+                    if (simboloLido == '+' || simboloLido == '-' || simboloLido == '(')
                         return true;
                     return false;
-                case "*":
-                    if (topo == "+" || topo == "-" || topo == "(")
+                case '*':
+                    if (simboloLido == '+' || simboloLido == '-' || simboloLido == '(')
                         return true;
                     return false;
-                case "-":
-                    if (topo == "(")
+                case '-':
+                    if (simboloLido == '(')
                         return true;
                     return false;
-                case "+":
-                    if (topo == "(")
+                case '+':
+                    if (simboloLido == '(')
                         return true;
                     return false;
             }
