@@ -336,9 +336,8 @@
             this.lblPosfixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosfixa.Location = new System.Drawing.Point(81, 96);
             this.lblPosfixa.Name = "lblPosfixa";
-            this.lblPosfixa.Size = new System.Drawing.Size(51, 20);
+            this.lblPosfixa.Size = new System.Drawing.Size(0, 20);
             this.lblPosfixa.TabIndex = 23;
-            this.lblPosfixa.Text = "label1";
             // 
             // lblInfixa
             // 
@@ -346,9 +345,8 @@
             this.lblInfixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfixa.Location = new System.Drawing.Point(81, 120);
             this.lblInfixa.Name = "lblInfixa";
-            this.lblInfixa.Size = new System.Drawing.Size(51, 20);
+            this.lblInfixa.Size = new System.Drawing.Size(0, 20);
             this.lblInfixa.TabIndex = 25;
-            this.lblInfixa.Text = "label1";
             // 
             // label2
             // 
