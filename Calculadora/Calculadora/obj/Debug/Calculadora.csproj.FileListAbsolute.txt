@@ -18,3 +18,13 @@ C:\Users\u18200\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\C
 C:\Users\u18200\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.exe
 C:\Users\u18200\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
 C:\Users\u18200\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csprojAssemblyReference.cache
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.cache
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\usuario\Documents\GitHub\Calculadora\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
