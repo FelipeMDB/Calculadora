@@ -37,18 +37,40 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e) //quando a pessoa aperta '=', o evento é disparado para se calcular a expressão
         {
-            erro = false;
+            if (txtVisor.Text != "")
+            {
+                erro = false;
 
-            FilaLista<char> seqInfixa = new FilaLista<char>(); //fila que armazena sequência infixa (com as letras nos lugares dos números), que será convertida para posfixa
-            string infixa = ""; //string da sequência infixa que será mostrada no lblInfixa
+                string infixa = ""; //string da sequência infixa que será mostrada no lblInfixa
+                FilaLista<char> seqInfixa = CriarInfixa(ref infixa); //fila que armazena sequência infixa (com as letras nos lugares dos números), que será convertida para posfixa
 
-            seqPosfixa = new FilaLista<char>(); // instanciação da fila de sequência posfixa
+                seqPosfixa = new FilaLista<char>(); // instanciação da fila de sequência posfixa
+
+                string posfixa = "";
+                if (!erro)
+                {
+                    ConverterParaPosfixa(seqInfixa, ref posfixa); //chama método que converte a infixa para posfixa
+
+                    if (!erro)
+                    {
+                        lblPosfixa.Text = posfixa; //exibe sequência posfixa formada no lblPosfixa
+                        Calcular(); //chama método que calcula a posfixa
+                    }
+                    else
+                        txtResultado.Text = "Verifique sua expressão";
+                }
+            }
+        }
+
+        private FilaLista<char> CriarInfixa(ref string infixa)
+        {
+            FilaLista<char> seqInfixa = new FilaLista<char>();
 
             char letra = 'A'; //char que irá de A a Z para "substituir" os números
             valores = new double[26]; //instanciação do vetor de valores
             string numero = ""; //string que armazenará um valor lido, caracter por caracter
 
-            for (int i = 0; i < txtVisor.Text.Length; i++) //percorre string do txtVisor, indexando-o como um vetor, até acabar as posições
+            for (int i = 0; i < txtVisor.Text.Length && !erro; i++) //percorre string do txtVisor, indexando-o como um vetor, até acabar as posições
             {
                 char caracterAtual = (txtVisor.Text)[i]; //pega o caracter atual pelo index do for
 
@@ -56,6 +78,11 @@ namespace Calculadora
                 if (int.TryParse(caracterAtual.ToString(), out num) || caracterAtual.Equals('.')) //se o valor for um número inteiro(como se está analisando apenas um caracter isolado, não se precisa usar double.TryParse)
                 {                                                                                  // ou se for um '.', ou seja, uma vírgula do double, ele faz parte de um número
                     numero += caracterAtual; //concatena caracter do número em formação
+                }
+                else if(!EhOperador(caracterAtual)) //caso não seja número nem operador, o usuário digitou algo inválido
+                {
+                    erro = true;
+                    txtResultado.Text = "Digite operadores válidos";
                 }
                 else if (numero != "") //se caracter lido não fizer mais parte de um número e a variável numero não for vazia
                 {
@@ -72,7 +99,7 @@ namespace Calculadora
                     infixa += caracterAtual; //concatena-se caracter atual em infixa
                 }
 
-                if (i + 1 == txtVisor.Text.Length && (numero != "")) // se o próximo index do vetor for o fim da operação mas o número não estiver vazio
+                if (i+1 == txtVisor.Text.Length && (numero != "") && !erro) // se o próximo index do vetor for o fim da operação mas o número não estiver vazio
                 {
                     valores[letra - 'A'] = double.Parse(numero); //armazena valor no vetor de valores
                     seqInfixa.Enfileirar(letra); //enfileira letra correspondente a valor
@@ -83,16 +110,30 @@ namespace Calculadora
             }
 
             lblInfixa.Text = infixa; //exibe sequência infixa formada no lblInfixa
-            string posfixa = "";
-            ConverterParaPosfixa(seqInfixa, ref posfixa); //chama método que converte a infixa para posfixa
 
-            if (!erro)
+            return seqInfixa;
+        }
+
+        private bool EhOperador(char op)
+        {
+            switch (op)
             {
-                lblPosfixa.Text = posfixa; //exibe sequência posfixa formada no lblPosfixa
-                Calcular(); //chama método que calcula a posfixa
+                case '*':
+                    return true;
+                case '/':
+                    return true;
+                case '+':
+                    return true;
+                case '-':
+                    return true;
+                case '^':
+                    return true;
+                case ')':
+                    return true;
+                case '(':
+                    return true;
             }
-            else
-                txtResultado.Text = "Verifique sua expressão";
+            return false; //se não for nada acima, não é operando 
         }
 
         private void ConverterParaPosfixa(FilaLista<char> seqInfixa, ref string posfixa)
@@ -238,6 +279,15 @@ namespace Calculadora
             {
                 double resultado = pilhaValores.Desempilhar(); //como os resultados das sub-expressões vão sendo armazenados na pilha, ao final restará o resultado
                 txtResultado.Text = resultado.ToString(); //exibe resultado
+            }
+        }
+
+        private void txtVisor_TextChanged(object sender, EventArgs e)
+        {
+            if(txtVisor.Text[txtVisor.Text.Length-1] == '=')
+            {
+                txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length-1);
+                btnIgual_Click(new Button(), new EventArgs());
             }
         }
     }
