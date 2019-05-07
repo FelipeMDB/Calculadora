@@ -75,8 +75,10 @@ namespace Calculadora
                 char caracterAtual = (txtVisor.Text)[i]; //pega o caracter atual pelo index do for
 
                 int num; //variável apenas com fim de ser usada no tryParse
-                if (int.TryParse(caracterAtual.ToString(), out num) || caracterAtual.Equals('.')) //se o valor for um número inteiro(como se está analisando apenas um caracter isolado, não se precisa usar double.TryParse)
+                if (int.TryParse(caracterAtual.ToString(), out num) || caracterAtual.Equals('.') || caracterAtual.Equals(','))//se o valor for um número inteiro(como se está analisando apenas um caracter isolado, não se precisa usar double.TryParse)
                 {                                                                                  // ou se for um '.', ou seja, uma vírgula do double, ele faz parte de um número
+                    if (caracterAtual.Equals('.'))
+                        caracterAtual = ',';
                     numero += caracterAtual; //concatena caracter do número em formação
                 }
                 else if(!EhOperador(caracterAtual)) //caso não seja número nem operador, o usuário digitou algo inválido
@@ -158,11 +160,11 @@ namespace Calculadora
                                 posfixa += operadorComMaiorPrecedencia; //concatena-se na string de posfixa
                             }
                         }
-                        if (simboloLido != ')') // empilha-se o simbolo lido, a menos que ele seja um '('
+                        if (simboloLido != ')') // empilha-se o simbolo lido, a menos que ele seja um ')'
                             pilha.Empilhar(simboloLido);
                         else
                         {
-                            if (pilha.EstaVazia() || pilha.OTopo() != '(') //se o simbolo lido for '(' e já foi feito o método acima sobre as precedencias, restará um parentesis fechado no topo da pilha, a menos que a sequência não esteja balanceada
+                            if (!pilha.EstaVazia() && pilha.OTopo() == '(') //se o simbolo lido for ')' e já foi feito o método acima sobre as precedencias, restará um parentesis aberto no topo da pilha, a menos que a sequência não esteja balanceada
                                 operadorComMaiorPrecedencia = pilha.Desempilhar();
                             else
                                 erro = true;
@@ -284,7 +286,7 @@ namespace Calculadora
 
         private void txtVisor_TextChanged(object sender, EventArgs e)
         {
-            if(txtVisor.Text[txtVisor.Text.Length-1] == '=')
+            if(txtVisor.Text != "" && txtVisor.Text[txtVisor.Text.Length-1] == '=')
             {
                 txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length-1);
                 btnIgual_Click(new Button(), new EventArgs());
