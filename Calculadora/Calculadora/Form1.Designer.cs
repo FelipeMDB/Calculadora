@@ -59,25 +59,31 @@
             // 
             // txtVisor
             // 
+            this.txtVisor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVisor.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtVisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVisor.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtVisor.Location = new System.Drawing.Point(12, 12);
             this.txtVisor.Name = "txtVisor";
             this.txtVisor.ReadOnly = true;
-            this.txtVisor.Size = new System.Drawing.Size(262, 31);
+            this.txtVisor.Size = new System.Drawing.Size(279, 31);
             this.txtVisor.TabIndex = 0;
             this.txtVisor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVisor_KeyPress);
             // 
             // txtResultado
             // 
+            this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResultado.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtResultado.Enabled = false;
             this.txtResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResultado.Location = new System.Drawing.Point(12, 51);
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.ReadOnly = true;
-            this.txtResultado.Size = new System.Drawing.Size(262, 31);
+            this.txtResultado.Size = new System.Drawing.Size(279, 31);
             this.txtResultado.TabIndex = 1;
             // 
             // label5
@@ -92,10 +98,11 @@
             // 
             // btnPotencia
             // 
+            this.btnPotencia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPotencia.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnPotencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPotencia.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPotencia.Location = new System.Drawing.Point(12, 150);
+            this.btnPotencia.Location = new System.Drawing.Point(20, 152);
             this.btnPotencia.Name = "btnPotencia";
             this.btnPotencia.Size = new System.Drawing.Size(61, 44);
             this.btnPotencia.TabIndex = 3;
@@ -106,9 +113,10 @@
             // 
             // btnDivisao
             // 
+            this.btnDivisao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDivisao.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnDivisao.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDivisao.Location = new System.Drawing.Point(79, 150);
+            this.btnDivisao.Location = new System.Drawing.Point(87, 152);
             this.btnDivisao.Name = "btnDivisao";
             this.btnDivisao.Size = new System.Drawing.Size(61, 44);
             this.btnDivisao.TabIndex = 4;
@@ -118,9 +126,10 @@
             // 
             // btnMultiplicacao
             // 
+            this.btnMultiplicacao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMultiplicacao.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnMultiplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiplicacao.Location = new System.Drawing.Point(146, 150);
+            this.btnMultiplicacao.Location = new System.Drawing.Point(154, 152);
             this.btnMultiplicacao.Name = "btnMultiplicacao";
             this.btnMultiplicacao.Size = new System.Drawing.Size(61, 44);
             this.btnMultiplicacao.TabIndex = 5;
@@ -130,9 +139,10 @@
             // 
             // btnSubtracao
             // 
+            this.btnSubtracao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSubtracao.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnSubtracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubtracao.Location = new System.Drawing.Point(213, 150);
+            this.btnSubtracao.Location = new System.Drawing.Point(221, 152);
             this.btnSubtracao.Name = "btnSubtracao";
             this.btnSubtracao.Size = new System.Drawing.Size(61, 44);
             this.btnSubtracao.TabIndex = 6;
@@ -142,9 +152,10 @@
             // 
             // btnSoma
             // 
+            this.btnSoma.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSoma.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnSoma.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSoma.Location = new System.Drawing.Point(213, 200);
+            this.btnSoma.Location = new System.Drawing.Point(221, 202);
             this.btnSoma.Name = "btnSoma";
             this.btnSoma.Size = new System.Drawing.Size(61, 44);
             this.btnSoma.TabIndex = 10;
@@ -154,9 +165,10 @@
             // 
             // btn9
             // 
+            this.btn9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn9.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn9.Location = new System.Drawing.Point(146, 200);
+            this.btn9.Location = new System.Drawing.Point(154, 202);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(61, 44);
             this.btn9.TabIndex = 9;
@@ -166,9 +178,10 @@
             // 
             // btn8
             // 
+            this.btn8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn8.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn8.Location = new System.Drawing.Point(79, 200);
+            this.btn8.Location = new System.Drawing.Point(87, 202);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(61, 44);
             this.btn8.TabIndex = 8;
@@ -178,9 +191,10 @@
             // 
             // btn7
             // 
+            this.btn7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn7.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn7.Location = new System.Drawing.Point(12, 200);
+            this.btn7.Location = new System.Drawing.Point(20, 202);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(61, 44);
             this.btn7.TabIndex = 7;
@@ -190,9 +204,10 @@
             // 
             // btnPonto
             // 
+            this.btnPonto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPonto.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnPonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPonto.Location = new System.Drawing.Point(213, 250);
+            this.btnPonto.Location = new System.Drawing.Point(221, 252);
             this.btnPonto.Name = "btnPonto";
             this.btnPonto.Size = new System.Drawing.Size(61, 44);
             this.btnPonto.TabIndex = 14;
@@ -203,9 +218,10 @@
             // 
             // btn6
             // 
+            this.btn6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn6.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn6.Location = new System.Drawing.Point(146, 250);
+            this.btn6.Location = new System.Drawing.Point(154, 252);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(61, 44);
             this.btn6.TabIndex = 13;
@@ -215,9 +231,10 @@
             // 
             // btn5
             // 
+            this.btn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn5.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5.Location = new System.Drawing.Point(79, 250);
+            this.btn5.Location = new System.Drawing.Point(87, 252);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(61, 44);
             this.btn5.TabIndex = 12;
@@ -227,9 +244,10 @@
             // 
             // btn4
             // 
+            this.btn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn4.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4.Location = new System.Drawing.Point(12, 250);
+            this.btn4.Location = new System.Drawing.Point(20, 252);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(61, 44);
             this.btn4.TabIndex = 11;
@@ -239,9 +257,10 @@
             // 
             // btnParentesisFechado
             // 
+            this.btnParentesisFechado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnParentesisFechado.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnParentesisFechado.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParentesisFechado.Location = new System.Drawing.Point(213, 300);
+            this.btnParentesisFechado.Location = new System.Drawing.Point(221, 302);
             this.btnParentesisFechado.Name = "btnParentesisFechado";
             this.btnParentesisFechado.Size = new System.Drawing.Size(61, 44);
             this.btnParentesisFechado.TabIndex = 18;
@@ -251,9 +270,10 @@
             // 
             // btn3
             // 
+            this.btn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn3.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn3.Location = new System.Drawing.Point(146, 300);
+            this.btn3.Location = new System.Drawing.Point(154, 302);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(61, 44);
             this.btn3.TabIndex = 17;
@@ -263,9 +283,10 @@
             // 
             // btn2
             // 
+            this.btn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn2.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2.Location = new System.Drawing.Point(79, 300);
+            this.btn2.Location = new System.Drawing.Point(87, 302);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(61, 44);
             this.btn2.TabIndex = 16;
@@ -275,9 +296,10 @@
             // 
             // btn1
             // 
+            this.btn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn1.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn1.Location = new System.Drawing.Point(12, 300);
+            this.btn1.Location = new System.Drawing.Point(20, 302);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(61, 44);
             this.btn1.TabIndex = 15;
@@ -287,9 +309,10 @@
             // 
             // btn0
             // 
+            this.btn0.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn0.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn0.Location = new System.Drawing.Point(12, 350);
+            this.btn0.Location = new System.Drawing.Point(20, 352);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(61, 44);
             this.btn0.TabIndex = 22;
@@ -299,9 +322,10 @@
             // 
             // btnIgual
             // 
+            this.btnIgual.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIgual.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnIgual.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIgual.Location = new System.Drawing.Point(79, 352);
+            this.btnIgual.Location = new System.Drawing.Point(87, 354);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(61, 44);
             this.btnIgual.TabIndex = 21;
@@ -311,9 +335,10 @@
             // 
             // btnLimpar
             // 
+            this.btnLimpar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLimpar.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(146, 352);
+            this.btnLimpar.Location = new System.Drawing.Point(154, 354);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(61, 44);
             this.btnLimpar.TabIndex = 20;
@@ -323,9 +348,10 @@
             // 
             // btnParentesisAberto
             // 
+            this.btnParentesisAberto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnParentesisAberto.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnParentesisAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParentesisAberto.Location = new System.Drawing.Point(213, 350);
+            this.btnParentesisAberto.Location = new System.Drawing.Point(221, 352);
             this.btnParentesisAberto.Name = "btnParentesisAberto";
             this.btnParentesisAberto.Size = new System.Drawing.Size(61, 44);
             this.btnParentesisAberto.TabIndex = 19;
@@ -366,7 +392,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(292, 408);
+            this.ClientSize = new System.Drawing.Size(309, 408);
             this.Controls.Add(this.lblInfixa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPosfixa);
@@ -393,9 +419,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtResultado);
             this.Controls.Add(this.txtVisor);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(312, 450);
+            this.MaximumSize = new System.Drawing.Size(412, 460);
             this.MinimumSize = new System.Drawing.Size(312, 450);
             this.Name = "frmCalculadora";
             this.Text = "Calculadora";

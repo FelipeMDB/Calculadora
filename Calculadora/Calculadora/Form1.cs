@@ -79,11 +79,6 @@ namespace Calculadora
                         caracterAtual = ',';
                     numero += caracterAtual; //concatena caracter do número em formação
                 }
-                else if(caracterAtual.Equals('-') || caracterAtual.Equals('+'))
-                {
-                    if(seqInfixa.EstaVazia() || seqInfixa.OFim().Equals('('))
-                        numero += caracterAtual;
-                }
                 else if (numero != "") //se caracter lido não fizer mais parte de um número e a variável numero não for vazia
                 {
                     valores[letra - 'A'] = double.Parse(numero); //armazena-se valor do número formado, convertendo-o para double
@@ -95,8 +90,21 @@ namespace Calculadora
                 }
                 else //se o caracter lido for referente a uma operação mas não houver um número na variável numero (está vazia)
                 {
-                    seqInfixa.Enfileirar(caracterAtual); //enfileira-se caracter atual
-                    infixa += caracterAtual; //concatena-se caracter atual em infixa
+                    if (caracterAtual.Equals('-') || caracterAtual.Equals('+')) //o caracter pode fazer parte do número, como "-1", mas daí o '+'/'-' tem que
+                    {                                                           //estar logo no começo da sequência, ou estar precedido de '('
+                        if (seqInfixa.EstaVazia() || seqInfixa.OFim().Equals('('))
+                            numero += caracterAtual;
+                        else
+                        {
+                            seqInfixa.Enfileirar(caracterAtual); //enfileira-se caracter atual
+                            infixa += caracterAtual; //concatena-se caracter atual em infixa
+                        }
+                    }
+                    else
+                    {
+                        seqInfixa.Enfileirar(caracterAtual); //enfileira-se caracter atual
+                        infixa += caracterAtual; //concatena-se caracter atual em infixa
+                    }
                 }
 
                 if (i + 1 == txtVisor.Text.Length && (numero != "") && !erro) // se o próximo index do vetor for o fim da operação mas o número não estiver vazio
@@ -243,8 +251,19 @@ namespace Calculadora
                 else // se for operador
                 {
                     double valor = 0;
-                    double operando2 = pilhaValores.Desempilhar(); //o segundo operando é referente ao topo da pilha, e é desempilhado
-                    double operando1 = pilhaValores.Desempilhar(); //desempilha-se primeiro operando
+                    double operando2 = 0;
+                    double operando1 = 0;
+
+                    if (pilhaValores.Tamanho() < 2)
+                    {
+                        erro = true; //não há elementos suficientes para desempilhar os operandos, ou seja, o usuário digitou operadores 'sobrando'
+                        txtResultado.Text = "Erro: operadores a mais";
+                    }
+                    else
+                    {
+                        operando2 = pilhaValores.Desempilhar();//o segundo operando é referente ao topo da pilha, e é desempilhado
+                        operando1 = pilhaValores.Desempilhar();//desempilha-se primeiro operando
+                    }
 
                     switch (simbolo) //switch para realizar diferentes operações dependendo do operador
                     {
@@ -286,14 +305,14 @@ namespace Calculadora
         private void txtVisor_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter = e.KeyChar; // passa o caracter digitado para uma variavel local
-            if (char.IsNumber(e.KeyChar) || EhOperador(e.KeyChar))   // se o caracter for um numero ou um operador 
+            if (char.IsNumber(e.KeyChar) || EhOperador(e.KeyChar) || e.KeyChar.Equals('.') || e.KeyChar.Equals(','))   // se o caracter for um numero ou um operador 
             {
                 txtVisor.Text += caracter; //ele é escrito no txtVisor
             }
-            else if (e.KeyChar == (char)Keys.Back && txtVisor.Text != "")
+            else if (e.KeyChar == (char)Keys.Back && txtVisor.Text != "") //se apertar para apagar e o txtVisor não estiver vazio, retira-se a ultima posição
                 txtVisor.Text = txtVisor.Text.Remove(txtVisor.Text.Length - 1);
 
-            else if (txtVisor.Text != "" && (caracter == '=' || e.KeyChar == (char)Keys.Enter))
+            else if (txtVisor.Text != "" && (caracter == '=' || e.KeyChar == (char)Keys.Enter)) //se pressionar um '=' ou a tecla enter faz a conta, chamando manualmente o evento do btngual
             {
                 btnIgual_Click(new Button(), new EventArgs());
             }
