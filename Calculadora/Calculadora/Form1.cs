@@ -47,18 +47,16 @@ namespace Calculadora
                 seqPosfixa = new FilaLista<char>(); // instanciação da fila de sequência posfixa
 
                 string posfixa = "";
+                
+                ConverterParaPosfixa(seqInfixa, ref posfixa); //chama método que converte a infixa para posfixa
+
                 if (!erro)
                 {
-                    ConverterParaPosfixa(seqInfixa, ref posfixa); //chama método que converte a infixa para posfixa
-
-                    if (!erro)
-                    {
-                        lblPosfixa.Text = posfixa; //exibe sequência posfixa formada no lblPosfixa
-                        Calcular(); //chama método que calcula a posfixa
-                    }
-                    else
-                        txtResultado.Text = "Verifique sua expressão";
+                    lblPosfixa.Text = posfixa; //exibe sequência posfixa formada no lblPosfixa
+                    Calcular(); //chama método que calcula a posfixa
                 }
+                else
+                    txtResultado.Text = "Verifique sua expressão";
             }
         }
 
@@ -81,11 +79,6 @@ namespace Calculadora
                         caracterAtual = ',';
                     numero += caracterAtual; //concatena caracter do número em formação
                 }
-                else if(!EhOperador(caracterAtual)) //caso não seja número nem operador, o usuário digitou algo inválido
-                {
-                    erro = true;
-                    txtResultado.Text = "Digite operadores válidos";
-                }
                 else if (numero != "") //se caracter lido não fizer mais parte de um número e a variável numero não for vazia
                 {
                     valores[letra - 'A'] = double.Parse(numero); //armazena-se valor do número formado, convertendo-o para double
@@ -101,7 +94,7 @@ namespace Calculadora
                     infixa += caracterAtual; //concatena-se caracter atual em infixa
                 }
 
-                if (i+1 == txtVisor.Text.Length && (numero != "") && !erro) // se o próximo index do vetor for o fim da operação mas o número não estiver vazio
+                if (i + 1 == txtVisor.Text.Length && (numero != "") && !erro) // se o próximo index do vetor for o fim da operação mas o número não estiver vazio
                 {
                     valores[letra - 'A'] = double.Parse(numero); //armazena valor no vetor de valores
                     seqInfixa.Enfileirar(letra); //enfileira letra correspondente a valor
@@ -198,12 +191,12 @@ namespace Calculadora
                     return false;
 
                 case '^':
-                    if(simboloLido == '^' || simboloLido == '(')
+                    if (simboloLido == '^' || simboloLido == '(')
                         return false;
                     return true;
 
                 case '*':
-                    if(simboloLido == '^' || simboloLido == '(')
+                    if (simboloLido == '^' || simboloLido == '(')
                         return false;
                     return true;
 
@@ -247,7 +240,7 @@ namespace Calculadora
                     double operando2 = pilhaValores.Desempilhar(); //o segundo operando é referente ao topo da pilha, e é desempilhado
                     double operando1 = pilhaValores.Desempilhar(); //desempilha-se primeiro operando
 
-                    switch(simbolo) //switch para realizar diferentes operações dependendo do operador
+                    switch (simbolo) //switch para realizar diferentes operações dependendo do operador
                     {
                         case '*':
                             valor = operando1 * operando2;
@@ -283,12 +276,19 @@ namespace Calculadora
                 txtResultado.Text = resultado.ToString(); //exibe resultado
             }
         }
-
-        private void txtVisor_TextChanged(object sender, EventArgs e)
+        
+        private void txtVisor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(txtVisor.Text != "" && txtVisor.Text[txtVisor.Text.Length-1] == '=')
+            char caracter = e.KeyChar; // passa o caracter digitado para uma variavel local
+            if (char.IsNumber(e.KeyChar) || EhOperador(e.KeyChar))   // se o caracter for um numero ou um operador 
             {
-                txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length-1);
+                txtVisor.Text += caracter; //ele é escrito no txtVisor
+            }
+            else if (e.KeyChar == (char)Keys.Back && txtVisor.Text != "")
+                txtVisor.Text = txtVisor.Text.Remove(txtVisor.Text.Length - 1);
+
+            else if (txtVisor.Text != "" && (caracter == '=' || e.KeyChar == (char)Keys.Enter))
+            {
                 btnIgual_Click(new Button(), new EventArgs());
             }
         }

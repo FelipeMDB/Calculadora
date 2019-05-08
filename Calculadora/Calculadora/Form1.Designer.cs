@@ -61,15 +61,18 @@
             // 
             this.txtVisor.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtVisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVisor.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtVisor.Location = new System.Drawing.Point(12, 12);
             this.txtVisor.Name = "txtVisor";
+            this.txtVisor.ReadOnly = true;
             this.txtVisor.Size = new System.Drawing.Size(262, 31);
             this.txtVisor.TabIndex = 0;
-            this.txtVisor.TextChanged += new System.EventHandler(this.txtVisor_TextChanged);
+            this.txtVisor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVisor_KeyPress);
             // 
             // txtResultado
             // 
             this.txtResultado.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtResultado.Enabled = false;
             this.txtResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResultado.Location = new System.Drawing.Point(12, 51);
             this.txtResultado.Name = "txtResultado";
