@@ -47,7 +47,7 @@ namespace Calculadora
                 seqPosfixa = new FilaLista<char>(); // instanciação da fila de sequência posfixa
 
                 string posfixa = "";
-                
+
                 ConverterParaPosfixa(seqInfixa, ref posfixa); //chama método que converte a infixa para posfixa
 
                 if (!erro)
@@ -78,6 +78,11 @@ namespace Calculadora
                     if (caracterAtual.Equals('.'))
                         caracterAtual = ',';
                     numero += caracterAtual; //concatena caracter do número em formação
+                }
+                else if(caracterAtual.Equals('-') || caracterAtual.Equals('+'))
+                {
+                    if(seqInfixa.EstaVazia() || seqInfixa.OFim().Equals('('))
+                        numero += caracterAtual;
                 }
                 else if (numero != "") //se caracter lido não fizer mais parte de um número e a variável numero não for vazia
                 {
@@ -233,6 +238,7 @@ namespace Calculadora
                 {
                     double valor = valores[simbolo - 'A']; //recupera valor referente à letra indexando o vetor valores
                     pilhaValores.Empilhar(valor); //empilha valor recebido
+
                 }
                 else // se for operador
                 {
@@ -276,7 +282,7 @@ namespace Calculadora
                 txtResultado.Text = resultado.ToString(); //exibe resultado
             }
         }
-        
+
         private void txtVisor_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter = e.KeyChar; // passa o caracter digitado para uma variavel local
