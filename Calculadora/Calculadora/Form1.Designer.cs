@@ -70,6 +70,7 @@
             this.txtVisor.ReadOnly = true;
             this.txtVisor.Size = new System.Drawing.Size(279, 31);
             this.txtVisor.TabIndex = 0;
+            this.txtVisor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVisor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVisor_KeyPress);
             // 
             // txtResultado
@@ -392,7 +393,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(309, 408);
+            this.ClientSize = new System.Drawing.Size(309, 412);
             this.Controls.Add(this.lblInfixa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPosfixa);
